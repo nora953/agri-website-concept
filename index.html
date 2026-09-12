@@ -3,175 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professional agricultural services website concept." />
+  <meta name="description" content="Professional agriculture services website concept." />
   <title>AgriNova | Agricultural Services</title>
   <style>
     :root{
-      --green-900:#123524;
-      --green-800:#17472f;
-      --green-700:#246343;
-      --green-100:#edf5ef;
-      --lime:#d6ec8d;
+      --green-950:#0f2f20;
+      --green-900:#153d2a;
+      --green-700:#2f7350;
+      --green-100:#eef6f0;
+      --lime:#d7ed8b;
       --cream:#f7f5ef;
-      --ink:#182019;
-      --muted:#68736b;
+      --ink:#172019;
+      --muted:#6a756d;
       --line:#dfe6e1;
-      --white:#ffffff;
-      --shadow:0 24px 60px rgba(20,55,36,.12);
+      --white:#fff;
+      --shadow:0 20px 55px rgba(17,53,34,.12);
       --radius:24px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+    body{margin:0;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55;overflow-x:hidden}
     a{text-decoration:none;color:inherit}
-    .container{width:min(1180px,calc(100% - 40px));margin:auto}
-    .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green-700);margin-bottom:14px}
+    button{font:inherit}
+    .container{width:min(1160px,calc(100% - 48px));margin-inline:auto}
+    .eyebrow{display:inline-block;margin:0 0 14px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green-700)}
     h1,h2,h3,p{margin-top:0}
-    h1,h2{font-family:Georgia,'Times New Roman',serif}
+    h1,h2{font-family:Georgia,"Times New Roman",serif}
 
-    .topbar{background:var(--green-900);color:#dbe7de;font-size:13px}
-    .topbar .container{min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .topbar{background:var(--green-950);color:#dce7e0;font-size:13px}
+    .topbar-inner{min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:18px}
 
-    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06)}
-    .nav{height:78px;display:flex;align-items:center;gap:28px}
-    .brand{display:flex;align-items:center;gap:11px;font-size:23px;font-weight:800;color:var(--green-900)}
-    .brand-mark{width:40px;height:40px;border-radius:12px;background:var(--green-900);color:var(--lime);display:grid;place-items:center;font-size:19px}
-    .nav-links{margin-left:auto;display:flex;gap:28px;align-items:center;font-size:14px;font-weight:700;color:#445249}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06)}
+    .nav{min-height:78px;display:flex;align-items:center;gap:28px;position:relative}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:850;font-size:22px;color:var(--green-950);white-space:nowrap}
+    .brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,var(--green-950),var(--green-700));display:grid;place-items:center;color:var(--lime);font-size:20px;box-shadow:0 8px 20px rgba(17,53,34,.16)}
+    .nav-links{margin-left:auto;display:flex;align-items:center;gap:28px;font-size:14px;font-weight:700;color:#455149}
     .nav-links a:hover{color:var(--green-700)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font-size:14px;font-weight:800;border:1px solid transparent;transition:.2s ease}
-    .btn-primary{background:var(--green-900);color:#fff}
-    .btn-primary:hover{background:var(--green-700);transform:translateY(-1px)}
-    .btn-outline{border-color:#cbd7cf;background:#fff;color:var(--green-900)}
-    .btn-outline:hover{border-color:var(--green-700);color:var(--green-700)}
-    .nav-cta{margin-left:8px}
-    .menu{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line);background:#fff;border-radius:12px;font-size:22px}
+    .nav-cta{margin-left:6px}
+    .menu-btn{display:none;margin-left:auto;width:48px;height:48px;border:1px solid var(--line);border-radius:14px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
+    .menu-lines,.menu-lines:before,.menu-lines:after{width:22px;height:2px;background:var(--ink);display:block;content:"";transition:.2s}
+    .menu-lines{position:relative}.menu-lines:before{position:absolute;top:-7px}.menu-lines:after{position:absolute;top:7px}
 
-    .hero{background:linear-gradient(180deg,#fafcf9 0%,#f3f7f3 100%);padding:74px 0 76px}
-    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
-    .hero h1{font-size:clamp(52px,6.2vw,78px);line-height:.98;letter-spacing:-2.8px;margin:0 0 24px;max-width:690px}
+    .hero{padding:72px 0 76px;background:radial-gradient(circle at 88% 10%,rgba(215,237,139,.24),transparent 26%),linear-gradient(180deg,#fbfcfa,#f3f7f3)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.98fr);gap:62px;align-items:center}
+    .hero h1{font-size:clamp(50px,6vw,76px);line-height:.98;letter-spacing:-2.8px;margin:0 0 22px;max-width:720px}
     .hero-copy{font-size:18px;color:var(--muted);max-width:620px;margin-bottom:30px}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .trust-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;padding-top:26px;border-top:1px solid #dce5de}
-    .trust-strip strong{display:block;color:var(--green-900);font-size:20px;margin-bottom:2px}
-    .trust-strip span{font-size:12px;color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font-size:14px;font-weight:800;border:1px solid transparent;transition:.2s}
+    .btn-primary{background:var(--green-950);color:#fff}.btn-primary:hover{background:var(--green-700);transform:translateY(-1px)}
+    .btn-outline{border-color:#cbd7cf;background:#fff;color:var(--green-950)}.btn-outline:hover{border-color:var(--green-700);color:var(--green-700)}
+    .trust-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;padding-top:24px;border-top:1px solid #dce5de}
+    .trust-strip strong{display:block;color:var(--green-950);font-size:18px;margin-bottom:2px}.trust-strip span{font-size:12px;color:var(--muted)}
 
-    .hero-media{display:grid;grid-template-columns:1fr 170px;gap:16px;align-items:stretch}
-    .hero-main-photo{min-height:530px;border-radius:30px;background:url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1400&q=88') center/cover;box-shadow:var(--shadow)}
+    .hero-media{display:grid;grid-template-columns:minmax(0,1fr) 165px;gap:16px;min-width:0}
+    .hero-main-photo{min-height:520px;border-radius:30px;background:url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1400&q=88') center/cover;box-shadow:var(--shadow)}
     .hero-side{display:grid;grid-template-rows:1fr 1fr;gap:16px}
-    .mini-card{border-radius:22px;padding:22px;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 12px 28px rgba(20,55,36,.07)}
-    .mini-card.dark{background:var(--green-900);color:#fff;border:0}
-    .mini-card .small{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#849188;font-weight:800}
-    .mini-card.dark .small{color:#bbcdc1}
-    .mini-card strong{font-size:28px;line-height:1.05;margin:6px 0}
-    .mini-card p{margin:0;font-size:12px;color:var(--muted)}
-    .mini-card.dark p{color:#d5e1d9}
+    .mini-card{border-radius:22px;padding:20px;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 10px 28px rgba(20,55,36,.07)}
+    .mini-card.dark{background:var(--green-950);color:#fff;border:0}
+    .mini-card .small{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#849188;font-weight:800}.mini-card.dark .small{color:#b9ccc0}
+    .mini-card strong{font-size:25px;line-height:1.08;margin:7px 0}.mini-card p{margin:0;font-size:12px;color:var(--muted)}.mini-card.dark p{color:#d3e0d8}
 
-    section{padding:92px 0}
-    .section-head{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:40px}
-    .section-head h2{font-size:48px;line-height:1.05;letter-spacing:-1.7px;margin:0;max-width:700px}
-    .section-head p{margin:0;color:var(--muted);max-width:500px;justify-self:end}
+    section{padding:88px 0}
+    .section-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:end;margin-bottom:36px}
+    .section-head h2,.about h2{font-size:clamp(38px,4.2vw,48px);line-height:1.05;letter-spacing:-1.5px;margin:0;max-width:720px}
+    .section-head p{margin:0;color:var(--muted);max-width:490px;justify-self:end}
 
-    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .service-card{border:1px solid var(--line);border-radius:24px;padding:28px;background:#fff;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s ease}
+    .services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .service-card{border:1px solid var(--line);border-radius:22px;padding:26px;background:#fff;min-height:285px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s}
     .service-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(22,68,46,.09)}
-    .service-icon{width:52px;height:52px;border-radius:15px;background:var(--green-100);display:grid;place-items:center;font-size:24px;margin-bottom:22px}
-    .service-card h3{font-size:22px;margin-bottom:10px}
-    .service-card p{color:var(--muted);margin-bottom:26px}
-    .text-link{font-size:14px;font-weight:800;color:var(--green-700)}
+    .service-icon{width:52px;height:52px;border-radius:15px;background:var(--green-100);display:grid;place-items:center;font-size:23px;margin-bottom:20px}
+    .service-card h3{font-size:21px;margin:0 0 9px}.service-card p{color:var(--muted);margin:0 0 22px}.text-link{font-size:14px;font-weight:800;color:var(--green-700)}
 
     .about{background:var(--cream)}
-    .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:66px;align-items:center}
-    .about-photo{min-height:570px;border-radius:30px;background:url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1300&q=88') center/cover;position:relative;box-shadow:var(--shadow)}
-    .photo-caption{position:absolute;left:22px;right:22px;bottom:22px;background:rgba(255,255,255,.94);padding:17px 18px;border-radius:16px;font-weight:800;color:var(--green-900)}
-    .about h2{font-size:48px;line-height:1.06;letter-spacing:-1.6px;margin:0 0 20px}
-    .about-copy{font-size:17px;color:var(--muted);margin-bottom:30px}
-    .feature-list{display:grid;gap:18px}
-    .feature{display:grid;grid-template-columns:46px 1fr;gap:15px;align-items:start}
-    .feature-badge{width:46px;height:46px;border-radius:50%;background:var(--green-900);color:#fff;display:grid;place-items:center;font-weight:900}
-    .feature h3{font-size:18px;margin:0 0 4px}
-    .feature p{font-size:14px;color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:64px;align-items:center}
+    .about-photo{min-height:560px;border-radius:30px;background:url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1300&q=88') center/cover;position:relative;box-shadow:var(--shadow)}
+    .photo-caption{position:absolute;left:22px;right:22px;bottom:22px;background:rgba(255,255,255,.94);padding:16px 18px;border-radius:15px;font-weight:800;color:var(--green-950)}
+    .about h2{margin-bottom:18px}.about-copy{font-size:17px;color:var(--muted);margin-bottom:28px}
+    .feature-list{display:grid;gap:16px}.feature{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}.feature-badge{width:44px;height:44px;border-radius:50%;background:var(--green-950);color:#fff;display:grid;place-items:center;font-weight:900}.feature h3{font-size:17px;margin:0 0 3px}.feature p{font-size:14px;color:var(--muted);margin:0}
 
-    .stats{padding:48px 0;background:var(--green-900);color:#fff}
-    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-    .stat{padding:10px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
-    .stat:last-child{border-right:0}
-    .stat strong{display:block;font-family:Georgia,serif;color:var(--lime);font-size:43px;line-height:1}
-    .stat span{display:block;margin-top:9px;font-size:13px;color:#d8e4dc}
+    .stats{padding:44px 0;background:var(--green-950);color:#fff}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}.stat{padding:10px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}.stat:last-child{border-right:0}.stat strong{display:block;font-family:Georgia,serif;color:var(--lime);font-size:42px;line-height:1}.stat span{display:block;margin-top:8px;font-size:13px;color:#d6e3da}
 
-    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}
-    .step{border:1px solid var(--line);border-radius:22px;padding:26px;background:#fbfcfb;min-height:220px}
-    .step:before{counter-increment:step;content:'0' counter(step);display:block;font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--green-700);margin-bottom:34px}
-    .step h3{font-size:20px;margin-bottom:8px}
-    .step p{font-size:14px;color:var(--muted);margin:0}
+    .process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;counter-reset:step}
+    .step{border:1px solid var(--line);border-radius:22px;padding:24px;background:#fbfcfb;min-height:205px;display:flex;flex-direction:column;justify-content:flex-start}
+    .step:before{counter-increment:step;content:'0' counter(step);display:block;font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--green-700);margin-bottom:28px}
+    .step h3{font-size:20px;margin:0 0 7px}.step p{font-size:14px;color:var(--muted);margin:0}
 
-    .cta{padding-top:10px}
-    .cta-box{background:linear-gradient(135deg,#113622,#1e5a3d);color:#fff;border-radius:32px;padding:54px;display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}
-    .cta-box h2{font-size:44px;line-height:1.05;margin:0 0 14px;letter-spacing:-1.4px}
-    .cta-box p{margin:0;color:#d7e4db;max-width:630px}
-    .cta-actions{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap}
-    .cta .btn-primary{background:var(--lime);color:var(--green-900)}
-    .cta .btn-outline{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
+    .cta{padding-top:14px}.cta-box{background:linear-gradient(135deg,#113622,#1e5a3d);color:#fff;border-radius:30px;padding:50px;display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}.cta-box h2{font-size:clamp(34px,4vw,44px);line-height:1.05;margin:0 0 12px;letter-spacing:-1.3px}.cta-box p{margin:0;color:#d7e4db;max-width:620px}.cta-actions{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap}.cta .btn-primary{background:var(--lime);color:var(--green-950)}.cta .btn-outline{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
 
-    footer{margin-top:92px;background:#0d271b;color:#cbd7cf;padding:56px 0 28px}
-    .footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,.7fr);gap:40px}
-    .footer-brand p{max-width:360px;color:#96aa9d;font-size:14px}
-    .footer-col h4{margin:0 0 15px;color:#fff}
-    .footer-col a{display:block;margin:8px 0;color:#a7b8ad;font-size:14px}
-    .footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12px;color:#8ea095}
+    footer{margin-top:86px;background:#0d271b;color:#cbd7cf;padding:52px 0 26px}.footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,.7fr);gap:36px}.footer-brand p{max-width:350px;color:#96aa9d;font-size:14px}.footer-col h4{margin:0 0 14px;color:#fff}.footer-col a{display:block;margin:8px 0;color:#a7b8ad;font-size:14px}.footer-bottom{margin-top:34px;padding-top:19px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12px;color:#8ea095}
 
-    @media(max-width:980px){
-      .nav-links,.nav-cta{display:none}.menu{display:block}
-      .hero-grid,.about-grid,.section-head,.cta-box{grid-template-columns:1fr}
-      .section-head p{justify-self:start}
-      .hero-media{grid-template-columns:1fr 150px}
-      .hero-main-photo{min-height:470px}
-      .services-grid{grid-template-columns:1fr 1fr}
-      .process-grid,.stats-grid{grid-template-columns:1fr 1fr}
-      .stat:nth-child(2){border-right:0}
-      .stat:nth-child(-n+2){margin-bottom:18px}
-      .cta-actions{justify-content:flex-start}
-      .footer-grid{grid-template-columns:1fr 1fr}
+    @media(max-width:1100px){
+      .container{width:min(100% - 40px,960px)}
+      .nav-links,.nav-cta{display:none}.menu-btn{display:flex}
+      .mobile-menu{display:none;position:absolute;left:0;right:0;top:78px;background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;box-shadow:0 18px 38px rgba(17,53,34,.12);padding:14px 20px 18px}
+      .mobile-menu.open{display:grid;gap:4px}
+      .mobile-menu a{padding:12px 4px;font-weight:700;color:#3e4c43;border-bottom:1px solid #eef2ef}.mobile-menu a:last-child{border-bottom:0;color:var(--green-700)}
+      .hero-grid{grid-template-columns:1fr;gap:42px}.hero{padding-top:58px}.hero-media{max-width:760px}.hero-main-photo{min-height:470px}
+      .section-head{grid-template-columns:1fr;gap:16px}.section-head p{justify-self:start}
+      .about-grid{grid-template-columns:1fr 1fr;gap:38px}.about-photo{min-height:500px}
+      .process-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1.2fr 1fr 1fr}.footer-col:last-child{grid-column:2/4}
     }
-    @media(max-width:640px){
-      .container{width:min(100% - 28px,1180px)}
-      .topbar{display:none}.nav{height:68px}
-      .hero{padding:48px 0 58px}.hero-grid{gap:36px}
-      .hero h1{font-size:49px;letter-spacing:-2px}
-      .hero-copy{font-size:16px}
-      .trust-strip{grid-template-columns:1fr;gap:12px}
-      .hero-media{grid-template-columns:1fr}
-      .hero-main-photo{min-height:390px;border-radius:24px}
-      .hero-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-      .mini-card{min-height:150px;padding:18px}
-      section{padding:68px 0}
-      .section-head{gap:18px}.section-head h2,.about h2{font-size:38px}
-      .services-grid,.process-grid,.stats-grid,.footer-grid{grid-template-columns:1fr}
-      .stat{border-right:0;border-bottom:1px solid rgba(255,255,255,.12);padding:20px}
-      .stat:last-child{border-bottom:0}.stat:nth-child(-n+2){margin-bottom:0}
-      .about-photo{min-height:430px}
-      .cta-box{padding:34px 24px}.cta-box h2{font-size:36px}
+
+    @media(max-width:760px){
+      .container{width:min(100% - 32px,680px)}
+      .topbar{display:none}.nav{min-height:70px}.mobile-menu{top:70px}
+      .brand{font-size:20px}.brand-mark{width:40px;height:40px}.menu-btn{width:46px;height:46px}
+      .hero{padding:44px 0 56px}.hero-grid{gap:30px}.hero h1{font-size:clamp(42px,12vw,58px);letter-spacing:-2px}.hero-copy{font-size:16px;margin-bottom:24px}
+      .hero-actions{display:grid;grid-template-columns:1fr 1fr}.btn{width:100%;padding-inline:16px}
+      .trust-strip{grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px;padding-top:20px}.trust-strip strong{font-size:15px}.trust-strip span{font-size:11px}
+      .hero-media{grid-template-columns:1fr;gap:12px}.hero-main-photo{min-height:360px;border-radius:22px}.hero-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}.mini-card{min-height:130px;padding:16px;border-radius:18px}.mini-card strong{font-size:21px}
+      section{padding:62px 0}.section-head{margin-bottom:28px}.section-head h2,.about h2{font-size:36px;letter-spacing:-1px}
+      .services-grid{grid-template-columns:1fr}.service-card{min-height:0;padding:22px}.service-card p{margin-bottom:18px}
+      .about-grid{grid-template-columns:1fr;gap:34px}.about-photo{min-height:380px;order:0}.about-grid>div:last-child{order:1}.photo-caption{left:14px;right:14px;bottom:14px;font-size:14px}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}.stat{border-right:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);padding:20px 10px}.stat:nth-child(2n){border-right:0}.stat:nth-child(n+3){border-bottom:0}.stat strong{font-size:34px}
+      .process-grid{grid-template-columns:1fr;gap:12px}.step{min-height:0;padding:22px}.step:before{margin-bottom:16px}.step h3{font-size:19px}
+      .cta-box{grid-template-columns:1fr;padding:30px 22px;gap:24px;border-radius:24px}.cta-actions{justify-content:flex-start;display:grid;grid-template-columns:1fr 1fr}
+      footer{margin-top:62px}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}.footer-brand{grid-column:1/-1}.footer-col:last-child{grid-column:auto}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:6px}
+    }
+
+    @media(max-width:420px){
+      .container{width:calc(100% - 28px)}
+      .brand{font-size:19px;gap:10px}.brand-mark{width:38px;height:38px}.menu-btn{width:44px;height:44px}
+      .hero h1{font-size:42px}.hero-actions{grid-template-columns:1fr}.trust-strip{grid-template-columns:1fr 1fr}.trust-strip>div:last-child{grid-column:1/-1}
+      .hero-main-photo{min-height:320px}.hero-side{grid-template-columns:1fr}.mini-card{min-height:110px}
+      .section-head h2,.about h2{font-size:33px}.about-photo{min-height:340px}
+      .cta-actions{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-brand{grid-column:auto}
     }
   </style>
 </head>
 <body>
   <div class="topbar">
-    <div class="container">
-      <span>Professional agricultural services across Europe</span>
-      <span>info@agrinova.example · +31 (0) 20 555 0148</span>
-    </div>
+    <div class="container topbar-inner"><span>Professional agricultural services across Europe</span><span>info@agrinova.example · +31 (0) 20 555 0148</span></div>
   </div>
 
   <header>
     <div class="container nav">
       <a class="brand" href="#top"><span class="brand-mark">✦</span>AgriNova</a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#process">How we work</a>
-        <a href="#contact">Contact</a>
+        <a href="#services">Services</a><a href="#about">About</a><a href="#process">How we work</a><a href="#contact">Contact</a>
       </nav>
       <a class="btn btn-primary nav-cta" href="#contact">Request a quote</a>
-      <button class="menu" aria-label="Menu">☰</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span class="menu-lines"></span></button>
+      <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+        <a href="#services">Services</a><a href="#about">About</a><a href="#process">How we work</a><a href="#contact">Contact</a><a href="#contact">Request a quote</a>
+      </nav>
     </div>
   </header>
 
@@ -182,30 +159,14 @@
           <span class="eyebrow">Smarter agricultural operations</span>
           <h1>Reliable support for modern agriculture.</h1>
           <p class="hero-copy">From field work and machinery support to logistics and seasonal operations, we help agricultural businesses stay efficient, responsive and ready for every season.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#services">Explore services</a>
-            <a class="btn btn-outline" href="#contact">Talk to our team</a>
-          </div>
-          <div class="trust-strip">
-            <div><strong>15+ years</strong><span>sector experience</span></div>
-            <div><strong>24/7 support</strong><span>when timing matters</span></div>
-            <div><strong>EU-wide</strong><span>service capability</span></div>
-          </div>
+          <div class="hero-actions"><a class="btn btn-primary" href="#services">Explore services</a><a class="btn btn-outline" href="#contact">Talk to our team</a></div>
+          <div class="trust-strip"><div><strong>15+ years</strong><span>sector experience</span></div><div><strong>24/7 support</strong><span>when timing matters</span></div><div><strong>EU-wide</strong><span>service capability</span></div></div>
         </div>
-
         <div class="hero-media">
           <div class="hero-main-photo" role="img" aria-label="Agricultural field"></div>
           <div class="hero-side">
-            <div class="mini-card">
-              <span class="small">Efficiency gain</span>
-              <strong>+28%</strong>
-              <p>Through smarter planning and coordination.</p>
-            </div>
-            <div class="mini-card dark">
-              <span class="small">Season-ready</span>
-              <strong>Fast response</strong>
-              <p>Flexible support when peak periods begin.</p>
-            </div>
+            <div class="mini-card"><span class="small">Efficiency gain</span><strong>+28%</strong><p>Through smarter planning and coordination.</p></div>
+            <div class="mini-card dark"><span class="small">Season-ready</span><strong>Fast response</strong><p>Flexible support when peak periods begin.</p></div>
           </div>
         </div>
       </div>
@@ -213,130 +174,56 @@
 
     <section id="services">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">What we do</span>
-            <h2>Practical services built around your operation.</h2>
-          </div>
-          <p>Clear support, dependable execution and flexible agricultural services designed around real operational needs.</p>
-        </div>
-
+        <div class="section-head"><div><span class="eyebrow">What we do</span><h2>Practical services built around your operation.</h2></div><p>Clear support, dependable execution and flexible agricultural services designed around real operational needs.</p></div>
         <div class="services-grid">
-          <article class="service-card">
-            <div>
-              <div class="service-icon">🌱</div>
-              <h3>Crop & field support</h3>
-              <p>Seasonal support for planting, crop maintenance, harvesting and day-to-day field operations.</p>
-            </div>
-            <a class="text-link" href="#contact">Learn more →</a>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="service-icon">🚜</div>
-              <h3>Machinery services</h3>
-              <p>Reliable machinery coordination and specialist equipment support for efficient on-site work.</p>
-            </div>
-            <a class="text-link" href="#contact">Learn more →</a>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="service-icon">📦</div>
-              <h3>Agricultural logistics</h3>
-              <p>Transport, handling and supply coordination to keep people, products and equipment moving on time.</p>
-            </div>
-            <a class="text-link" href="#contact">Learn more →</a>
-          </article>
+          <article class="service-card"><div><div class="service-icon">🌱</div><h3>Crop & field support</h3><p>Seasonal support for planting, crop maintenance, harvesting and day-to-day field operations.</p></div><a class="text-link" href="#contact">Learn more →</a></article>
+          <article class="service-card"><div><div class="service-icon">🚜</div><h3>Machinery services</h3><p>Reliable machinery coordination and specialist equipment support for efficient on-site work.</p></div><a class="text-link" href="#contact">Learn more →</a></article>
+          <article class="service-card"><div><div class="service-icon">📦</div><h3>Agricultural logistics</h3><p>Transport, handling and supply coordination to keep people, products and equipment moving on time.</p></div><a class="text-link" href="#contact">Learn more →</a></article>
         </div>
       </div>
     </section>
 
     <section class="about" id="about">
       <div class="container about-grid">
-        <div class="about-photo" role="img" aria-label="Agricultural machinery">
-          <div class="photo-caption">Precision · Reliability · Growth</div>
-        </div>
-        <div>
-          <span class="eyebrow">Why choose us</span>
-          <h2>Built on trust, responsiveness and agricultural know-how.</h2>
-          <p class="about-copy">We combine practical sector experience with clear communication and dependable delivery. That means fewer delays, better coordination and support that fits the way agricultural businesses actually work.</p>
-
+        <div class="about-photo" role="img" aria-label="Agricultural machinery"><div class="photo-caption">Precision · Reliability · Growth</div></div>
+        <div><span class="eyebrow">Why choose us</span><h2>Built on trust, responsiveness and agricultural know-how.</h2><p class="about-copy">We combine practical sector experience with clear communication and dependable delivery. That means fewer delays, better coordination and support that fits the way agricultural businesses actually work.</p>
           <div class="feature-list">
-            <div class="feature">
-              <div class="feature-badge">✓</div>
-              <div><h3>Experienced teams</h3><p>Practical knowledge across field operations, machinery and logistics.</p></div>
-            </div>
-            <div class="feature">
-              <div class="feature-badge">✓</div>
-              <div><h3>Flexible planning</h3><p>Support scaled to seasonal demand, project size and operational priorities.</p></div>
-            </div>
-            <div class="feature">
-              <div class="feature-badge">✓</div>
-              <div><h3>Clear communication</h3><p>Simple contact points, realistic timelines and dependable follow-through.</p></div>
-            </div>
+            <div class="feature"><div class="feature-badge">✓</div><div><h3>Experienced teams</h3><p>Practical knowledge across field operations, machinery and logistics.</p></div></div>
+            <div class="feature"><div class="feature-badge">✓</div><div><h3>Flexible planning</h3><p>Support scaled to seasonal demand, project size and operational priorities.</p></div></div>
+            <div class="feature"><div class="feature-badge">✓</div><div><h3>Clear communication</h3><p>Simple contact points, realistic timelines and dependable follow-through.</p></div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="stats">
-      <div class="container stats-grid">
-        <div class="stat"><strong>15+</strong><span>Years of experience</span></div>
-        <div class="stat"><strong>250+</strong><span>Projects supported</span></div>
-        <div class="stat"><strong>98%</strong><span>Client satisfaction</span></div>
-        <div class="stat"><strong>24/7</strong><span>Operational support</span></div>
-      </div>
-    </section>
+    <section class="stats"><div class="container stats-grid"><div class="stat"><strong>15+</strong><span>Years of experience</span></div><div class="stat"><strong>250+</strong><span>Projects supported</span></div><div class="stat"><strong>98%</strong><span>Client satisfaction</span></div><div class="stat"><strong>24/7</strong><span>Operational support</span></div></div></section>
 
     <section id="process">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">How we work</span>
-            <h2>Simple process. Clear responsibility.</h2>
-          </div>
-          <p>Every project follows a straightforward structure so clients always know what happens next.</p>
-        </div>
-
-        <div class="process-grid">
-          <div class="step"><h3>Understand</h3><p>We review your operation, schedule, priorities and practical requirements.</p></div>
-          <div class="step"><h3>Plan</h3><p>We define the right support, resources, timing and scope of work.</p></div>
-          <div class="step"><h3>Deliver</h3><p>Our team executes the work with a focus on safety, timing and consistency.</p></div>
-          <div class="step"><h3>Follow up</h3><p>We review outcomes, resolve open items and prepare for the next stage.</p></div>
-        </div>
+        <div class="section-head"><div><span class="eyebrow">How we work</span><h2>Simple process. Clear responsibility.</h2></div><p>Every project follows a straightforward structure so clients always know what happens next.</p></div>
+        <div class="process-grid"><div class="step"><h3>Understand</h3><p>We review your operation, schedule, priorities and practical requirements.</p></div><div class="step"><h3>Plan</h3><p>We define the right support, resources, timing and scope of work.</p></div><div class="step"><h3>Deliver</h3><p>Our team executes the work with a focus on safety, timing and consistency.</p></div><div class="step"><h3>Follow up</h3><p>We review outcomes, resolve open items and prepare for the next stage.</p></div></div>
       </div>
     </section>
 
-    <section class="cta" id="contact">
-      <div class="container">
-        <div class="cta-box">
-          <div>
-            <h2>Need dependable agricultural support?</h2>
-            <p>Tell us what you need and we’ll come back with a clear, practical next step for your operation.</p>
-          </div>
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="mailto:info@agrinova.example">Request a quote</a>
-            <a class="btn btn-outline" href="tel:+310205550148">Call us</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="cta" id="contact"><div class="container"><div class="cta-box"><div><h2>Need dependable agricultural support?</h2><p>Tell us what you need and we’ll come back with a clear, practical next step for your operation.</p></div><div class="cta-actions"><a class="btn btn-primary" href="mailto:info@agrinova.example">Request a quote</a><a class="btn btn-outline" href="tel:+310205550148">Call us</a></div></div></div></section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="#top" style="color:#fff"><span class="brand-mark">✦</span>AgriNova</a>
-          <p>Professional agricultural services focused on reliability, efficiency and practical support.</p>
-        </div>
-        <div class="footer-col"><h4>Company</h4><a href="#about">About</a><a href="#process">How we work</a><a href="#contact">Contact</a></div>
-        <div class="footer-col"><h4>Services</h4><a href="#services">Field support</a><a href="#services">Machinery</a><a href="#services">Logistics</a></div>
-        <div class="footer-col"><h4>Contact</h4><a href="mailto:info@agrinova.example">Email us</a><a href="tel:+310205550148">+31 (0) 20 555 0148</a><a href="#top">Back to top</a></div>
-      </div>
-      <div class="footer-bottom"><span>© 2026 AgriNova. All rights reserved.</span><span>Website concept for contest submission</span></div>
-    </div>
-  </footer>
+  <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="#top" style="color:#fff"><span class="brand-mark">✦</span>AgriNova</a><p>Professional agricultural services focused on reliability, efficiency and practical support.</p></div><div class="footer-col"><h4>Company</h4><a href="#about">About</a><a href="#process">How we work</a><a href="#contact">Contact</a></div><div class="footer-col"><h4>Services</h4><a href="#services">Field support</a><a href="#services">Machinery</a><a href="#services">Logistics</a></div><div class="footer-col"><h4>Contact</h4><a href="mailto:info@agrinova.example">Email us</a><a href="tel:+310205550148">+31 (0) 20 555 0148</a><a href="#top">Back to top</a></div></div><div class="footer-bottom"><span>© 2026 AgriNova. All rights reserved.</span><span>Website concept for contest submission</span></div></div></footer>
+
+  <script>
+    const menuBtn=document.getElementById('menuBtn');
+    const mobileMenu=document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click',()=>{
+      const open=mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',String(open));
+    });
+    mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      mobileMenu.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+    }));
+    window.addEventListener('resize',()=>{
+      if(window.innerWidth>1100){mobileMenu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}
+    });
+  </script>
 </body>
 </html>
